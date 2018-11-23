@@ -17,12 +17,15 @@ public class FillCommandTest {
     Canvas canvas;
 
     @Before
-    public void setUp(){
-        fillCommand = new FillCommand();
+    public void setUp() {
+        int x = 2;
+        int y = 3;
+        String color = "c";
+        fillCommand = new FillCommand(x, y, color);
     }
 
     @Test
-    public void testExecute(){
+    public void testExecute() {
         fillCommand.execute(canvas);
     }
 }

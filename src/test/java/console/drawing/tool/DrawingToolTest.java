@@ -1,4 +1,4 @@
-package console.drawing.invoker;
+package console.drawing.tool;
 
 import console.drawing.canvas.Canvas;
 import console.drawing.command.Command;
@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -20,9 +21,6 @@ public class DrawingToolTest {
     @Mock
     Command command;
 
-    @Mock
-    Canvas canvas;
-
     @Before
     public void setUp(){
         drawingTool = new DrawingTool();
@@ -31,6 +29,7 @@ public class DrawingToolTest {
     @Test
     public void testDraw(){
         drawingTool.draw(command);
-        verify(command,times(1)).execute(canvas);
+        verify(command,times(1)).execute(any(Canvas.class));
     }
+
 }

@@ -4,7 +4,17 @@ import console.drawing.canvas.Canvas;
 
 public class FillCommand implements Command {
 
-    public void execute(Canvas canvas){
+    private int x;
+    private int y;
+    private String color;
+
+    public FillCommand(int x, int y, String color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+    }
+
+    public void execute(Canvas canvas) {
 
     }
 }
