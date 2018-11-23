@@ -3,7 +3,7 @@ package console.drawing.helper;
 import static console.drawing.helper.InputCommand.INVALID;
 import static console.drawing.helper.InputCommand.values;
 
-public class CommandParser {
+public class ConsoleInputCommandArgumentParser {
 
     public static InputCommand parse(String c)
     {

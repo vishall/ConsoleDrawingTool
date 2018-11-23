@@ -9,16 +9,16 @@ public enum InputCommand
     QUIT("Q"),
     INVALID("I");
 
-    private final String c;
+    private final String commandChar;
 
-    InputCommand(String c)
+    InputCommand(String commandChar)
     {
-        this.c = c;
+        this.commandChar = commandChar;
     }
 
     public String getCommandCharacter()
     {
-        return c;
+        return commandChar;
     }
 
 }

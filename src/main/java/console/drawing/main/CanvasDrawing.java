@@ -2,7 +2,7 @@ package console.drawing.main;
 
 import console.drawing.command.Command;
 import console.drawing.helper.CommandMapper;
-import console.drawing.helper.CommandParser;
+import console.drawing.helper.ConsoleInputCommandArgumentParser;
 import console.drawing.helper.InputCommand;
 import console.drawing.tool.DrawingTool;
 
@@ -18,7 +18,7 @@ public class CanvasDrawing {
             try {
                 while (true){
                     System.out.print("enter command:");
-                    inputCommand = CommandParser.parse(scanner.next());
+                    inputCommand = ConsoleInputCommandArgumentParser.parse(scanner.next());
                     if(inputCommand == InputCommand.QUIT){
                         break;
                     }

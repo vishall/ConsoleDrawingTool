@@ -5,47 +5,47 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class CommandParserTest {
+public class ConsoleInputCommandArgumentParserTest {
 
-    CommandParser commandParser;
+    ConsoleInputCommandArgumentParser consoleInputCommandArgumentParser;
 
     @Before
     public void setUp(){
-        commandParser = new CommandParser();
+        consoleInputCommandArgumentParser = new ConsoleInputCommandArgumentParser();
     }
 
     @Test
     public void parseShouldReturnInputCommandAsCreate(){
-        InputCommand inputCommand = commandParser.parse("C");
+        InputCommand inputCommand = consoleInputCommandArgumentParser.parse("C");
         assertEquals(inputCommand,InputCommand.CREATE);
     }
 
     @Test
     public void parseShouldReturnInputCommandAsLine(){
-        InputCommand inputCommand = commandParser.parse("L");
+        InputCommand inputCommand = consoleInputCommandArgumentParser.parse("L");
         assertEquals(inputCommand,InputCommand.LINE);
     }
 
     @Test
     public void parseShouldReturnInputCommandAsRectangle(){
-        InputCommand inputCommand = commandParser.parse("R");
+        InputCommand inputCommand = consoleInputCommandArgumentParser.parse("R");
         assertEquals(inputCommand,InputCommand.RECTANGLE);
     }
     @Test
     public void parseShouldReturnInputCommandAsFill(){
-        InputCommand inputCommand = commandParser.parse("B");
+        InputCommand inputCommand = consoleInputCommandArgumentParser.parse("B");
         assertEquals(inputCommand,InputCommand.FILL);
     }
 
     @Test
     public void parseShouldReturnInputCommandAsQuit(){
-        InputCommand inputCommand = commandParser.parse("Q");
+        InputCommand inputCommand = consoleInputCommandArgumentParser.parse("Q");
         assertEquals(inputCommand,InputCommand.QUIT);
     }
 
     @Test
     public void parseShouldReturnInputCommandAsInvalid(){
-        InputCommand inputCommand = commandParser.parse("A");
+        InputCommand inputCommand = consoleInputCommandArgumentParser.parse("A");
         assertEquals(inputCommand,InputCommand.INVALID);
     }
 }
