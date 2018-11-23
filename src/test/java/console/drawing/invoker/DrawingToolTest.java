@@ -1,5 +1,6 @@
 package console.drawing.invoker;
 
+import console.drawing.canvas.Canvas;
 import console.drawing.command.Command;
 import console.drawing.tool.DrawingTool;
 import org.junit.Before;
@@ -19,6 +20,9 @@ public class DrawingToolTest {
     @Mock
     Command command;
 
+    @Mock
+    Canvas canvas;
+
     @Before
     public void setUp(){
         drawingTool = new DrawingTool();
@@ -27,6 +31,6 @@ public class DrawingToolTest {
     @Test
     public void testDraw(){
         drawingTool.draw(command);
-        verify(command,times(1)).execute();
+        verify(command,times(1)).execute(canvas);
     }
 }

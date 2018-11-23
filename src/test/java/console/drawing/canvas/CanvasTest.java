@@ -9,7 +9,9 @@ public class CanvasTest {
 
     @Before
     public void setUp(){
-        canvas = new Canvas();
+        int w = 2;
+        int h = 3;
+        canvas = new Canvas(w,h);
     }
 
     @Test

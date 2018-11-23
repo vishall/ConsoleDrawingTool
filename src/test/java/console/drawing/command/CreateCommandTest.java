@@ -20,12 +20,12 @@ public class CreateCommandTest {
 
     @Before
     public void setUp(){
-        createCommand = new CreateCommand(canvas,2,3);
+        createCommand = new CreateCommand(2,3);
     }
 
     @Test
     public void testExecute(){
-        createCommand.execute();
-        verify(canvas,times(1)).createCanvas();
+        createCommand.execute(canvas);
+        verify(canvas,times(1)).render();
     }
 }
