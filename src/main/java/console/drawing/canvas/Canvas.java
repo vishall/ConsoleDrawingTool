@@ -2,7 +2,7 @@ package console.drawing.canvas;
 
 public class Canvas {
 
-    int w, h;
+    private int w, h;
     private final char[][] canvasArray;
 
     public Canvas(int w,int h)
@@ -18,6 +18,25 @@ public class Canvas {
     }
 
     public void render(){
+        StringBuilder strBuilder = new StringBuilder();
 
+        for (int i = 0; i < w + 2; i++)
+            strBuilder.append('-');
+
+        strBuilder.append('\n');
+
+        for (int i = 0; i < h; i++) {
+            strBuilder.append('|');
+            for (int j = 0; j < w; j++)
+                strBuilder.append(canvasArray[j][i]);
+            strBuilder.append('|');
+            strBuilder.append('\n');
+        }
+
+        for (int i = 0; i < w + 2; i++)
+            strBuilder.append('-');
+
+        strBuilder.append('\n');
+        System.out.println(strBuilder.toString());
     }
 }

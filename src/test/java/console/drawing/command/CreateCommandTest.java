@@ -1,8 +1,9 @@
 package console.drawing.command;
 
 import console.drawing.canvas.Canvas;
-import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -18,14 +19,23 @@ public class CreateCommandTest {
     @Mock
     Canvas canvas;
 
-    @Before
-    public void setUp(){
-        createCommand = new CreateCommand(2,3);
-    }
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void testExecute(){
+        createCommand = new CreateCommand(2,3);
         createCommand.execute(canvas);
         verify(canvas,times(1)).render();
     }
+
+    @Test
+    public void testExecuteWithIncorrectInput(){
+        createCommand = new CreateCommand(-2,3);
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Canvas dimensions must be positive integers");
+        createCommand.execute(canvas);
+        verify(canvas,times(1)).render();
+    }
+
 }

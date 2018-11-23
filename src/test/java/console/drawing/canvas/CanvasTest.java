@@ -15,7 +15,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void testCreateCanvas(){
-
+    public void testRenderCanvas(){
+        canvas.render();
     }
 }
