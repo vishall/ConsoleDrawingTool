@@ -23,7 +23,7 @@ public class CanvasTest {
 
     @Test
     public void testDrawLine(){
-        canvas.drawLine(1,2,1,true);
+        canvas.drawLine(1,2,2,2);
         char[][] canvasArray = canvas.getCanvasArray();
         assertEquals(canvasArray[0][1],'x');
         assertEquals(canvasArray[1][1],'x');

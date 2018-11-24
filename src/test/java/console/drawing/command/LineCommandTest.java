@@ -33,6 +33,6 @@ public class LineCommandTest {
         lineCommand = new LineCommand(1,2,2,2);
         lineCommand.execute(canvas);
         verify(canvas,times(1)).render();
-        verify(canvas,times(1)).drawLine(1,2,1,true);
+        verify(canvas,times(1)).drawLine(1,2,2,2);
     }
 }

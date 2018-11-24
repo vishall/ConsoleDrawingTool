@@ -18,14 +18,16 @@ public class Canvas {
         }
     }
 
-    public void drawLine(int startXCoordinate, int startYCoordinate,int lineLength, boolean isHorizontalLine){
+    public void drawLine(int x1, int y1,int x2, int y2){
+        boolean isHorizontalLine = isHorizantalLine(y1, y2);
+        int lineLength = getLineLength(x1, y1,x2, y2,isHorizontalLine);
         if(isHorizontalLine){
             for(int i = 0; i <= lineLength; i++) {
-                canvasArray[startXCoordinate+i-1][startYCoordinate-1] = MARKER;
+                canvasArray[x1+i-1][y1-1] = MARKER;
             }
         } else {
             for(int i = 0; i <= lineLength; i++) {
-                canvasArray[startXCoordinate-1][startYCoordinate+i-1] = MARKER;
+                canvasArray[x1-1][y1+i-1] = MARKER;
             }
         }
     }
@@ -51,6 +53,20 @@ public class Canvas {
 
         strBuilder.append('\n');
         System.out.println(strBuilder.toString());
+    }
+
+    private int getLineLength(int x1, int y1, int x2, int y2,boolean isHorizontalLine) {
+        int lineLength = 0;
+        if(isHorizontalLine){
+            lineLength = x2 - x1;
+        } else {
+            lineLength = y2 - y1;
+        }
+        return lineLength;
+    }
+
+    private boolean isHorizantalLine(int y1, int y2){
+        return y1 == y2;
     }
 
     public int width() {
