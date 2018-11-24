@@ -3,19 +3,29 @@ package console.drawing.canvas;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class CanvasTest {
 
     Canvas canvas;
 
     @Before
     public void setUp(){
-        int w = 2;
-        int h = 3;
+        int w = 3;
+        int h = 4;
         canvas = new Canvas(w,h);
     }
 
     @Test
     public void testRenderCanvas(){
         canvas.render();
+    }
+
+    @Test
+    public void testDrawLine(){
+        canvas.drawLine(1,2,1,true);
+        char[][] canvasArray = canvas.getCanvasArray();
+        assertEquals(canvasArray[0][1],'x');
+        assertEquals(canvasArray[1][1],'x');
     }
 }
