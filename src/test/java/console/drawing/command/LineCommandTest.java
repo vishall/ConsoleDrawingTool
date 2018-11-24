@@ -25,7 +25,6 @@ public class LineCommandTest {
         int y1 = 2;
         int x2 = 3;
         int y2 = 2;
-        lineCommand = new LineCommand(x1,y1,x2,y2);
     }
 
     @Test

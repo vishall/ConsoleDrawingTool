@@ -28,4 +28,14 @@ public class CanvasTest {
         assertEquals(canvasArray[0][1],'x');
         assertEquals(canvasArray[1][1],'x');
     }
+
+    @Test
+    public void testDrawRectangle(){
+        canvas.drawRectangle(2,1,3,2);
+        char[][] canvasArray = canvas.getCanvasArray();
+        assertEquals(canvasArray[1][0],'x');
+        assertEquals(canvasArray[1][1],'x');
+        assertEquals(canvasArray[2][0],'x');
+        assertEquals(canvasArray[2][1],'x');
+    }
 }

@@ -41,4 +41,13 @@ public class ValidationsTest {
         Validations.verifyCanvas(canvas);
     }
 
+    @Test
+    public void testisValidRectangle() {
+        assertEquals(true, Validations.isValidRectangle(canvas,1,1,2,2));
+        assertEquals(false, Validations.isValidRectangle(canvas,-1,1,2,2));
+        assertEquals(false, Validations.isValidRectangle(canvas,1,-1,2,2));
+        assertEquals(false, Validations.isValidRectangle(canvas,1,1,4,2));
+        assertEquals(false, Validations.isValidRectangle(canvas,1,1,2,4));
+    }
+
 }

@@ -7,6 +7,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
 @RunWith(MockitoJUnitRunner.class)
 public class RectangleCommandTest {
 
@@ -27,5 +30,7 @@ public class RectangleCommandTest {
     @Test
     public void testExecute() {
         rectangleCommand.execute(canvas);
+        verify(canvas,times(1)).render();
+        verify(canvas,times(1)).drawRectangle(1,2,2,3);
     }
 }

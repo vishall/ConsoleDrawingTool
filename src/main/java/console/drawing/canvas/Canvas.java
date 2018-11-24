@@ -32,6 +32,16 @@ public class Canvas {
         }
     }
 
+    public void drawRectangle(int x1, int y1,int x2, int y2) {
+        //horizontal lines
+        drawLine(x1, y1 , x2, y1);
+        drawLine(x1, y2 , x2, y2);
+
+        //vertical lines
+        drawLine(x1, y1 , x1, y2);
+        drawLine(x2, y1 , x2, y2);
+    }
+
     public void render(){
         StringBuilder strBuilder = new StringBuilder();
 
@@ -68,6 +78,15 @@ public class Canvas {
     private boolean isHorizantalLine(int y1, int y2){
         return y1 == y2;
     }
+
+    private int getRectangleWidth(int x1, int x2){
+        return x2 - x1;
+    }
+
+    private int getRectangleHeight(int y1, int y2){
+        return y2 - y1;
+    }
+
 
     public int width() {
         return this.w;

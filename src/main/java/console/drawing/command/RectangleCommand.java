@@ -1,6 +1,7 @@
 package console.drawing.command;
 
 import console.drawing.canvas.Canvas;
+import console.drawing.validations.Validations;
 
 public class RectangleCommand implements Command {
 
@@ -17,6 +18,8 @@ public class RectangleCommand implements Command {
     }
 
     public void execute(Canvas canvas) {
-
+        Validations.verifyCanvas(canvas);
+        canvas.drawRectangle(x1,y1,x2,y2);
+        canvas.render();
     }
 }
