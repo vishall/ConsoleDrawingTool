@@ -21,7 +21,7 @@ public class CommandMapper {
                     command = new RectangleCommand(getInt(scanner.next()), getInt(scanner.next()), getInt(scanner.next()), getInt(scanner.next()));
                     break;
                 case FILL:
-                    command = new FillCommand(getInt(scanner.next()), getInt(scanner.next()), scanner.next());
+                    command = new FillCommand(getInt(scanner.next()), getInt(scanner.next()), scanner.next().charAt(0));
                     break;
                 case QUIT:
                     command = new QuitCommand();

@@ -30,4 +30,10 @@ public class Validations {
         if (canvas == null)
             throw new IllegalStateException("Canvas must first be created.");
     }
+
+    public static void verifyFillCoordinates(Canvas c,int x, int y){
+        if (x <= 0 || y <= 0 || x > c.width()  || y > c.height()){
+            throw new IllegalArgumentException("Coordinates to fill must be on canvas");
+        }
+    }
 }

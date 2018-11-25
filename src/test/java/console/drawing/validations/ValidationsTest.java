@@ -50,4 +50,10 @@ public class ValidationsTest {
         assertEquals(false, Validations.isValidRectangle(canvas,1,1,2,4));
     }
 
+    @Test
+    public void testVerifyFillCoordinates() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Coordinates to fill must be on canvas");
+        Validations.verifyFillCoordinates(canvas,0,1);
+    }
 }
