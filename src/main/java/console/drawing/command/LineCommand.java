@@ -1,7 +1,9 @@
 package console.drawing.command;
 
 import console.drawing.canvas.Canvas;
-import console.drawing.validations.Validations;
+
+import static console.drawing.validations.Validations.verifyCanvas;
+import static console.drawing.validations.Validations.verifyLineCoordinates;
 
 public class LineCommand implements Command {
 
@@ -18,9 +20,8 @@ public class LineCommand implements Command {
     }
 
     public void execute(Canvas canvas) {
-        Validations.verifyCanvas(canvas);
-        Validations.isValidLine(canvas, x1, y1,x2, y2);
+        verifyCanvas(canvas);
+        verifyLineCoordinates(canvas, x1, y1,x2, y2);
         canvas.drawLine(x1,y1,x2,y2);
-        canvas.render();
     }
 }

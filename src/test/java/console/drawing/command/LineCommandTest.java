@@ -9,6 +9,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LineCommandTest {
@@ -29,9 +30,11 @@ public class LineCommandTest {
 
     @Test
     public void testExecute(){
+        when(canvas.isCanvasDrawn()).thenReturn(true);
+        when(canvas.width()).thenReturn(6);
+        when(canvas.height()).thenReturn(6);
         lineCommand = new LineCommand(1,2,2,2);
         lineCommand.execute(canvas);
-        verify(canvas,times(1)).render();
         verify(canvas,times(1)).drawLine(1,2,2,2);
     }
 }

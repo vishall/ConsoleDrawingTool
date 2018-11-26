@@ -24,7 +24,7 @@ public class CreateCommandTest {
     public void testExecute() {
         createCommand = new CreateCommand(2, 3);
         createCommand.execute(canvas);
-        verify(canvas, times(1)).render();
+        verify(canvas, times(1)).drawCanvas(2,3);
     }
 
 }

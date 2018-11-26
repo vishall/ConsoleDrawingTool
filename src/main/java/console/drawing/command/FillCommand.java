@@ -19,6 +19,5 @@ public class FillCommand implements Command {
         Validations.verifyCanvas(canvas);
         Validations.verifyFillCoordinates(canvas,x,y);
         canvas.fill(x,y,color);
-        canvas. render();
     }
 }

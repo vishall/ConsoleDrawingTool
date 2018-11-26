@@ -21,6 +21,6 @@ public class CreateCommand implements Command {
     }
 
     public void execute(Canvas canvas) {
-        canvas.render();
+        canvas.drawCanvas(getW(), getH());
     }
 }

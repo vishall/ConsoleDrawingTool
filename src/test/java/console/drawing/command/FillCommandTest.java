@@ -32,10 +32,10 @@ public class FillCommandTest {
 
     @Test
     public void testExecute() {
+        when(canvas.isCanvasDrawn()).thenReturn(true);
         when(canvas.width()).thenReturn(4);
         when(canvas.height()).thenReturn(4);
         fillCommand.execute(canvas);
         verify(canvas,times(1)).fill(2,3,'c');
-        verify(canvas,times(1)).render();
     }
 }
