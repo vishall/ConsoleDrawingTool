@@ -5,7 +5,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class CanvasTest {
 
@@ -15,9 +15,18 @@ public class CanvasTest {
 
     @Before
     public void setUp() {
-        int w = 3;
-        int h = 4;
-        canvas = new Canvas(w, h);
+        canvas = Canvas.getInstance();
+    }
+
+    @Test
+    public void testIsCanvasDrawnWhenCanvasDrawn() {
+        canvas.drawCanvas(3,3);
+        assertNotNull(canvas.getCanvasArray());
+    }
+
+    @Test
+    public void testGetInstance() {
+        assertSame(Canvas.getInstance(),Canvas.getInstance());
     }
 
     @Test
@@ -27,6 +36,7 @@ public class CanvasTest {
 
     @Test
     public void testDrawLine() {
+        canvas.drawCanvas(3,4);
         canvas.drawLine(1, 2, 2, 2);
         char[][] canvasArray = canvas.getCanvasArray();
         assertEquals(canvasArray[0][1], 'x');
@@ -35,6 +45,7 @@ public class CanvasTest {
 
     @Test
     public void testDrawRectangle() {
+        canvas.drawCanvas(3,4);
         canvas.drawRectangle(2, 1, 3, 2);
         char[][] canvasArray = canvas.getCanvasArray();
         assertEquals(canvasArray[1][0], 'x');
@@ -45,7 +56,7 @@ public class CanvasTest {
 
     @Test
     public void testFill() {
-        canvas = new Canvas(2, 3);
+        canvas.drawCanvas(2,3);
         canvas.drawLine(1, 2, 2, 2);
         canvas.fill(1, 1, 'c');
         char[][] canvasArray = canvas.getCanvasArray();
@@ -55,7 +66,7 @@ public class CanvasTest {
 
     @Test
     public void testCanvasCreation() {
-        canvas = new Canvas(1, 2);
+        canvas.drawCanvas(1,2);
         char[][] canvasArray = canvas.getCanvasArray();
         assertEquals(canvasArray[0][0], ' ');
         assertEquals(canvasArray[0][1], ' ');
@@ -65,14 +76,14 @@ public class CanvasTest {
     public void testCanvasCreationWithInvalidWidth() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Canvas dimensions must be positive integers.");
-        canvas = new Canvas(-1, 2);
+        canvas.drawCanvas(-1,2);
     }
 
     @Test
     public void testCanvasCreationWithInvalidHeight() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Canvas dimensions must be positive integers.");
-        canvas = new Canvas(1, -2);
+        canvas.drawCanvas(1,-2);
     }
 
 }

@@ -6,15 +6,9 @@ import console.drawing.command.CreateCommand;
 
 public class DrawingTool {
 
-    private Canvas canvas;
+    private Canvas canvas = Canvas.getInstance();
 
     public void draw(Command command){
-
-        if(command instanceof CreateCommand) {
-            CreateCommand createCommand = (CreateCommand) command;
-            canvas = new Canvas(createCommand.getW(), createCommand.getH());
-        }
-
         command.execute(canvas);
     }
 

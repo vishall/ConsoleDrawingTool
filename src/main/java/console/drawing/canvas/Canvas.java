@@ -4,10 +4,27 @@ public class Canvas {
 
     private final static char BLANK = ' ';
     private final static char MARKER = 'x';
-    private final char[][] canvasArray;
+    private char[][] canvasArray;
     private int w, h;
 
-    public Canvas(int w, int h) {
+    public static Canvas canvas;
+
+    private Canvas() {
+
+    }
+
+    public static Canvas getInstance() {
+        if(canvas == null) {
+            canvas = new Canvas();
+        }
+        return canvas;
+    }
+
+    public boolean isCanvasDrawn() {
+        return canvasArray != null;
+    }
+
+    public void drawCanvas(int w, int h) {
         if (w < 1 || h < 1) {
             throw new IllegalArgumentException("Canvas dimensions must be positive integers.");
         }
@@ -18,6 +35,7 @@ public class Canvas {
             for (int j = 0; j < this.h; j++)
                 canvasArray[i][j] = BLANK;
         }
+        render();
     }
 
     public void drawLine(int x1, int y1, int x2, int y2) {
@@ -32,6 +50,7 @@ public class Canvas {
                 canvasArray[x1 - 1][y1 + i - 1] = MARKER;
             }
         }
+        canvas.render();
     }
 
     public void drawRectangle(int x1, int y1, int x2, int y2) {
@@ -42,6 +61,8 @@ public class Canvas {
         //vertical lines
         drawLine(x1, y1, x1, y2);
         drawLine(x2, y1, x2, y2);
+
+        canvas.render();
     }
 
     public void fill(int x, int y, char c) {
@@ -54,6 +75,7 @@ public class Canvas {
         fill(x - 1, y, c);
         fill(x, y + 1, c);
         fill(x, y - 1, c);
+        canvas.render();
     }
 
     public void render() {
@@ -78,7 +100,17 @@ public class Canvas {
         strBuilder.append('\n');
         System.out.println(strBuilder.toString());
     }
+    public int width() {
+        return this.w;
+    }
 
+    public int height() {
+        return this.h;
+    }
+
+    public char[][] getCanvasArray() {
+        return canvasArray;
+    }
     private int getLineLength(int x1, int y1, int x2, int y2, boolean isHorizontalLine) {
         int lineLength = 0;
         if (isHorizontalLine) {
@@ -101,16 +133,4 @@ public class Canvas {
         return y2 - y1;
     }
 
-
-    public int width() {
-        return this.w;
-    }
-
-    public int height() {
-        return this.h;
-    }
-
-    public char[][] getCanvasArray() {
-        return canvasArray;
-    }
 }
