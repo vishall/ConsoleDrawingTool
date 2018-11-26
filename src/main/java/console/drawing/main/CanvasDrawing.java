@@ -23,6 +23,7 @@ public class CanvasDrawing {
                 drawingTool.draw(command);
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
+                scanner.nextLine();
             }
         }
         while (inputCommand != InputCommand.QUIT);
