@@ -10,26 +10,23 @@ import java.util.Scanner;
 
 public class CanvasDrawing {
 
-       public static void main(String[] args) {
-           Scanner scanner = new Scanner(System.in);
-           InputCommand inputCommand;
-           CommandMapper commandMapper = new CommandMapper();
-           DrawingTool drawingTool = new DrawingTool();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        InputCommand inputCommand = InputCommand.INVALID;
+        CommandMapper commandMapper = new CommandMapper();
+        DrawingTool drawingTool = new DrawingTool();
+        do {
+            System.out.print("enter command:");
             try {
-                while (true){
-                    System.out.print("enter command:");
-                    inputCommand = ConsoleInputCommandArgumentParser.parse(scanner.next());
-                    if(inputCommand == InputCommand.QUIT){
-                        break;
-                    }
-                    Command command = commandMapper.getCommand(scanner,inputCommand);
-                    drawingTool.draw(command);
-                }
+                inputCommand = ConsoleInputCommandArgumentParser.parse(scanner.next());
+                Command command = commandMapper.getCommand(scanner, inputCommand);
+                drawingTool.draw(command);
             } catch (Exception ex) {
-
-            } finally {
-                scanner.close();
+                System.out.println(ex.getMessage());
             }
-            System.exit(0);
         }
+        while (inputCommand != InputCommand.QUIT);
+        scanner.close();
+        System.exit(0);
+    }
 }

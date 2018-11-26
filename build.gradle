@@ -1,5 +1,12 @@
 plugins {
     id 'java'
+    id 'application'
+}
+
+mainClassName = "console.drawing.main.CanvasDrawing"
+
+run {
+    standardInput = System.in
 }
 
 version '1.0-SNAPSHOT'
