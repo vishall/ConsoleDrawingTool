@@ -8,10 +8,12 @@ public class Canvas {
     private int w, h;
 
     public Canvas(int w, int h) {
+        if (w < 1 || h < 1) {
+            throw new IllegalArgumentException("Canvas dimensions must be positive integers.");
+        }
         this.w = w;
         this.h = h;
         canvasArray = new char[w][h];
-
         for (int i = 0; i < this.w; i++) {
             for (int j = 0; j < this.h; j++)
                 canvasArray[i][j] = BLANK;
@@ -43,7 +45,7 @@ public class Canvas {
     }
 
     public void fill(int x, int y, char c) {
-        if (x <= 0 || y <= 0 || x > w  || y > h || canvasArray[x - 1][y - 1] != BLANK)
+        if (x <= 0 || y <= 0 || x > w || y > h || canvasArray[x - 1][y - 1] != BLANK)
             return;
 
         canvasArray[x - 1][y - 1] = c;

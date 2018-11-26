@@ -14,28 +14,17 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class CreateCommandTest {
 
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
     CreateCommand createCommand;
-
     @Mock
     Canvas canvas;
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
     @Test
-    public void testExecute(){
-        createCommand = new CreateCommand(2,3);
+    public void testExecute() {
+        createCommand = new CreateCommand(2, 3);
         createCommand.execute(canvas);
-        verify(canvas,times(1)).render();
-    }
-
-    @Test
-    public void testExecuteWithIncorrectInput(){
-        createCommand = new CreateCommand(-2,3);
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Canvas dimensions must be positive integers");
-        createCommand.execute(canvas);
-        verify(canvas,times(1)).render();
+        verify(canvas, times(1)).render();
     }
 
 }
