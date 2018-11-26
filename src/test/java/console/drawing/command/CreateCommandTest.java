@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Scanner;
+
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -22,7 +24,8 @@ public class CreateCommandTest {
 
     @Test
     public void testExecute() {
-        createCommand = new CreateCommand(2, 3);
+        String userInput = "2 3";
+        createCommand = new CreateCommand(new Scanner(userInput));
         createCommand.execute(canvas);
         verify(canvas, times(1)).drawCanvas(2,3);
     }

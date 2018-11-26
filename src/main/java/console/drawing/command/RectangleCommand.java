@@ -3,6 +3,10 @@ package console.drawing.command;
 import console.drawing.canvas.Canvas;
 import console.drawing.validations.Validations;
 
+import java.util.Scanner;
+
+import static java.lang.Integer.parseInt;
+
 public class RectangleCommand implements Command {
 
     private int x1;
@@ -10,11 +14,11 @@ public class RectangleCommand implements Command {
     private int x2;
     private int y2;
 
-    public RectangleCommand(int x1, int y1, int x2, int y2) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
+    public RectangleCommand(Scanner scanner) {
+        this.x1 = parseInt(scanner.next());
+        this.y1 = parseInt(scanner.next());
+        this.x2 = parseInt(scanner.next());
+        this.y2 = parseInt(scanner.next());
     }
 
     public void execute(Canvas canvas) {

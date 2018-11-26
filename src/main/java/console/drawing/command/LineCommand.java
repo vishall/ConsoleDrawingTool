@@ -2,8 +2,11 @@ package console.drawing.command;
 
 import console.drawing.canvas.Canvas;
 
+import java.util.Scanner;
+
 import static console.drawing.validations.Validations.verifyCanvas;
 import static console.drawing.validations.Validations.verifyLineCoordinates;
+import static java.lang.Integer.*;
 
 public class LineCommand implements Command {
 
@@ -12,11 +15,11 @@ public class LineCommand implements Command {
     private int x2;
     private int y2;
 
-    public LineCommand(int x1, int y1, int x2, int y2) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
+    public LineCommand(Scanner scanner) {
+        this.x1 = parseInt(scanner.next());
+        this.y1 = parseInt(scanner.next());
+        this.x2 = parseInt(scanner.next());
+        this.y2 = parseInt(scanner.next());
     }
 
     public void execute(Canvas canvas) {

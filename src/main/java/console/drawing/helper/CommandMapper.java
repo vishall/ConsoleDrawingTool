@@ -12,16 +12,16 @@ public class CommandMapper {
         try {
             switch (inputCommand) {
                 case CREATE:
-                    command = new CreateCommand(getInt(scanner.next()), getInt(scanner.next()));
+                    command = new CreateCommand(scanner);
                     break;
                 case LINE:
-                    command = new LineCommand(getInt(scanner.next()), getInt(scanner.next()), getInt(scanner.next()), getInt(scanner.next()));
+                    command = new LineCommand(scanner);
                     break;
                 case RECTANGLE:
-                    command = new RectangleCommand(getInt(scanner.next()), getInt(scanner.next()), getInt(scanner.next()), getInt(scanner.next()));
+                    command = new RectangleCommand(scanner);
                     break;
                 case FILL:
-                    command = new FillCommand(getInt(scanner.next()), getInt(scanner.next()), scanner.next().charAt(0));
+                    command = new FillCommand(scanner);
                     break;
                 case QUIT:
                     command = new QuitCommand();
@@ -36,7 +36,4 @@ public class CommandMapper {
         return command;
     }
 
-    private int getInt(String coordinate) {
-        return Integer.parseInt(coordinate);
-    }
 }

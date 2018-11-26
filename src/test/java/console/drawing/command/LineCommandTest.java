@@ -7,6 +7,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Scanner;
+
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -19,21 +21,14 @@ public class LineCommandTest {
     @Mock
     Canvas canvas;
 
-    @Before
-    public void setUp(){
-
-        int x1 = 1;
-        int y1 = 2;
-        int x2 = 3;
-        int y2 = 2;
-    }
-
     @Test
     public void testExecute(){
+        String userInput = "1 2 2 2";
         when(canvas.isCanvasDrawn()).thenReturn(true);
         when(canvas.width()).thenReturn(6);
         when(canvas.height()).thenReturn(6);
-        lineCommand = new LineCommand(1,2,2,2);
+
+        lineCommand = new LineCommand(new Scanner(userInput));
         lineCommand.execute(canvas);
         verify(canvas,times(1)).drawLine(1,2,2,2);
     }

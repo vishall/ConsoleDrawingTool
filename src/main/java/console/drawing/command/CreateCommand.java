@@ -2,14 +2,18 @@ package console.drawing.command;
 
 import console.drawing.canvas.Canvas;
 
+import java.util.Scanner;
+
+import static java.lang.Integer.parseInt;
+
 public class CreateCommand implements Command {
 
     private int w;
     private int h;
 
-    public CreateCommand(int w, int h) {
-        this.w = w;
-        this.h = h;
+    public CreateCommand(Scanner scanner) {
+        this.w = parseInt(scanner.next());
+        this.h = parseInt(scanner.next());
     }
 
     public int getW() {

@@ -9,6 +9,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Scanner;
+
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -22,19 +24,16 @@ public class FillCommandTest {
     @Mock
     Canvas canvas;
 
-    @Before
-    public void setUp() {
-        int x = 2;
-        int y = 3;
-        char color = 'c';
-        fillCommand = new FillCommand(x, y, color);
-    }
 
     @Test
     public void testExecute() {
+        String userInput = "2 3 c";
+        new Scanner(userInput);
         when(canvas.isCanvasDrawn()).thenReturn(true);
         when(canvas.width()).thenReturn(4);
         when(canvas.height()).thenReturn(4);
+
+        fillCommand = new FillCommand(new Scanner(userInput));
         fillCommand.execute(canvas);
         verify(canvas,times(1)).fill(2,3,'c');
     }
