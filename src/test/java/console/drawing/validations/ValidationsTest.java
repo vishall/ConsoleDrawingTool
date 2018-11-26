@@ -8,7 +8,7 @@ import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ValidationsTest {
@@ -21,28 +21,45 @@ public class ValidationsTest {
 
     @Before
     public void setUp(){
-        canvas = new Canvas(3,3);
-    }
-    @Test
-    public void testisValidLine() {
-        assertEquals(true, Validations.isValidLine(canvas,1,2,2,2));
-        assertEquals(false, Validations.isValidLine(canvas,1,2,3,3));
-        assertEquals(false, Validations.isValidLine(canvas,-1,2,3,3));
-        assertEquals(false, Validations.isValidLine(canvas,1,-2,3,3));
-        assertEquals(false, Validations.isValidLine(canvas,1,2,3,4));
-        assertEquals(false, Validations.isValidLine(canvas,1,2,4,3));
+        canvas = Canvas.getInstance();
     }
 
     @Test
-    public void testVerifyCanvas() {
-        canvas = null;
-        expectedException.expect(IllegalStateException.class);
-        expectedException.expectMessage("Canvas must first be created.");
+    public void testAVerifyCanvas() {
+        canvas.drawCanvas(3,3);
         Validations.verifyCanvas(canvas);
     }
 
     @Test
+    public void testVerifyLineCoordinates() {
+        canvas.drawCanvas(3,3);
+        Validations.verifyLineCoordinates(canvas,1,2,2,2);
+    }
+
+    @Test
+    public void testVerifyLineCoordinatesWithLineOutsideCanvas() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Line coordinates must be on canvas.");
+        Validations.verifyLineCoordinates(canvas,1,2,4,2);
+    }
+
+    @Test
+    public void testVerifyLineCoordinatesWithDiagonalLine() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Line either must be horizontal or vertical.");
+        Validations.verifyLineCoordinates(canvas,1,1,2,2);
+    }
+
+    @Test
+    public void testVerifyLineCoordinatesWithIncorrectCordinates() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Coordinates of first point of line should be smaller than second point.");
+        Validations.verifyLineCoordinates(canvas,4,2,2,1);
+    }
+
+    @Test
     public void testisValidRectangle() {
+        canvas.drawCanvas(3,3);
         assertEquals(true, Validations.isValidRectangle(canvas,1,1,2,2));
         assertEquals(false, Validations.isValidRectangle(canvas,-1,1,2,2));
         assertEquals(false, Validations.isValidRectangle(canvas,1,-1,2,2));
