@@ -27,7 +27,7 @@ public class CreateCommandTest {
         String userInput = "2 3";
         createCommand = new CreateCommand(new Scanner(userInput));
         createCommand.execute(canvas);
-        verify(canvas, times(1)).drawCanvas(2,3);
+        verify(canvas, times(1)).drawCanvas(2, 3);
     }
 
 }

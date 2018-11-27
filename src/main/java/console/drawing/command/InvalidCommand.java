@@ -4,7 +4,7 @@ import console.drawing.canvas.Canvas;
 
 public class InvalidCommand implements Command {
 
-    public void execute(Canvas canvas){
+    public void execute(Canvas canvas) {
         throw new IllegalArgumentException("Please provide valid command(C/L/R/Q).");
     }
 }

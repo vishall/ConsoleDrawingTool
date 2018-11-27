@@ -5,6 +5,7 @@ import static console.drawing.helper.InputCommand.values;
 
 public class ConsoleInputCommandArgumentParser {
 
+    //parse command from user input provided
     public static InputCommand parse(String c)
     {
         for (InputCommand command : values()) {

@@ -1,5 +1,6 @@
 package console.drawing.helper;
 
+// User input command enum
 public enum InputCommand
 {
     CREATE("C"),

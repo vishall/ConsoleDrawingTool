@@ -77,7 +77,7 @@ public class CommandMapperTest {
         String userInput = "A 3 4 1";
         InputCommand inputCommand = InputCommand.RECTANGLE;
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Incorrect input argument provided");
+        expectedException.expectMessage("Incorrect input argument provided.");
         commandMapper.getCommand(new Scanner(userInput), inputCommand);
     }
 }

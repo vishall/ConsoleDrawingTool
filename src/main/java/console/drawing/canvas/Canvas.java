@@ -20,10 +20,12 @@ public class Canvas {
         return canvas;
     }
 
+    // verify whether canvas is drawn based on whether canvasArray intialized
     public boolean isCanvasDrawn() {
         return canvasArray != null;
     }
 
+    // draw canvas with given width and height
     public void drawCanvas(int w, int h) {
         if (w < 1 || h < 1) {
             throw new IllegalArgumentException("Canvas dimensions must be positive integers.");
@@ -38,6 +40,7 @@ public class Canvas {
         render();
     }
 
+    // draw line with given coordinates
     public void drawLine(int x1, int y1, int x2, int y2) {
         boolean isHorizontalLine = isHorizantalLine(y1, y2);
         int lineLength = getLineLength(x1, y1, x2, y2, isHorizontalLine);
@@ -53,6 +56,8 @@ public class Canvas {
         canvas.render();
     }
 
+
+    // draw rectangle with given coordinates
     public void drawRectangle(int x1, int y1, int x2, int y2) {
         //horizontal lines
         drawLine(x1, y1, x2, y1);
@@ -78,8 +83,11 @@ public class Canvas {
         canvas.render();
     }
 
+
+    // renders canvas based on values in canvasArray
     public void render() {
         StringBuilder strBuilder = new StringBuilder();
+        strBuilder.append('\n');
 
         for (int i = 0; i < w + 2; i++)
             strBuilder.append('-');
@@ -111,6 +119,7 @@ public class Canvas {
     public char[][] getCanvasArray() {
         return canvasArray;
     }
+
     private int getLineLength(int x1, int y1, int x2, int y2, boolean isHorizontalLine) {
         int lineLength = 0;
         if (isHorizontalLine) {
@@ -123,14 +132,6 @@ public class Canvas {
 
     private boolean isHorizantalLine(int y1, int y2) {
         return y1 == y2;
-    }
-
-    private int getRectangleWidth(int x1, int x2) {
-        return x2 - x1;
-    }
-
-    private int getRectangleHeight(int y1, int y2) {
-        return y2 - y1;
     }
 
 }

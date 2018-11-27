@@ -10,42 +10,43 @@ public class ConsoleInputCommandArgumentParserTest {
     ConsoleInputCommandArgumentParser consoleInputCommandArgumentParser;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         consoleInputCommandArgumentParser = new ConsoleInputCommandArgumentParser();
     }
 
     @Test
-    public void parseShouldReturnInputCommandAsCreate(){
+    public void parseShouldReturnInputCommandAsCreate() {
         InputCommand inputCommand = consoleInputCommandArgumentParser.parse("C");
-        assertEquals(inputCommand,InputCommand.CREATE);
+        assertEquals(inputCommand, InputCommand.CREATE);
     }
 
     @Test
-    public void parseShouldReturnInputCommandAsLine(){
+    public void parseShouldReturnInputCommandAsLine() {
         InputCommand inputCommand = consoleInputCommandArgumentParser.parse("L");
-        assertEquals(inputCommand,InputCommand.LINE);
+        assertEquals(inputCommand, InputCommand.LINE);
     }
 
     @Test
-    public void parseShouldReturnInputCommandAsRectangle(){
+    public void parseShouldReturnInputCommandAsRectangle() {
         InputCommand inputCommand = consoleInputCommandArgumentParser.parse("R");
-        assertEquals(inputCommand,InputCommand.RECTANGLE);
+        assertEquals(inputCommand, InputCommand.RECTANGLE);
     }
+
     @Test
-    public void parseShouldReturnInputCommandAsFill(){
+    public void parseShouldReturnInputCommandAsFill() {
         InputCommand inputCommand = consoleInputCommandArgumentParser.parse("B");
-        assertEquals(inputCommand,InputCommand.FILL);
+        assertEquals(inputCommand, InputCommand.FILL);
     }
 
     @Test
-    public void parseShouldReturnInputCommandAsQuit(){
+    public void parseShouldReturnInputCommandAsQuit() {
         InputCommand inputCommand = consoleInputCommandArgumentParser.parse("Q");
-        assertEquals(inputCommand,InputCommand.QUIT);
+        assertEquals(inputCommand, InputCommand.QUIT);
     }
 
     @Test
-    public void parseShouldReturnInputCommandAsInvalid(){
+    public void parseShouldReturnInputCommandAsInvalid() {
         InputCommand inputCommand = consoleInputCommandArgumentParser.parse("A");
-        assertEquals(inputCommand,InputCommand.INVALID);
+        assertEquals(inputCommand, InputCommand.INVALID);
     }
 }

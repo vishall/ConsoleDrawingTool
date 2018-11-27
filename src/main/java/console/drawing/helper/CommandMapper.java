@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class CommandMapper {
 
+    // creates actual command object based on given input command
     public Command getCommand(Scanner scanner, InputCommand inputCommand) {
 
         Command command = null;
@@ -31,7 +32,7 @@ public class CommandMapper {
                     break;
             }
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Incorrect input argument provided");
+            throw new IllegalArgumentException("Incorrect input argument provided.");
         }
         return command;
     }
