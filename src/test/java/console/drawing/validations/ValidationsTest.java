@@ -44,6 +44,13 @@ public class ValidationsTest {
     }
 
     @Test
+    public void testVerifyLineCoordinatesWithCoordinatesLessOrEqualToZero() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Line coordinates must be on canvas.");
+        Validations.verifyLineCoordinates(canvas,0,2,2,2);
+    }
+
+    @Test
     public void testVerifyLineCoordinatesWithDiagonalLine() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Line either must be horizontal or vertical.");

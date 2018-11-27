@@ -15,7 +15,7 @@ public class Validations {
             throw new IllegalArgumentException("Line either must be horizontal or vertical.");
 
         //if line is outside canvas
-        if (x1 < 0 || y1 < 0 || x2 > canvas.width() || y2 > canvas.height())
+        if (x1 <= 0 || y1 <= 0 || x2 > canvas.width() || y2 > canvas.height())
             throw new IllegalArgumentException("Line coordinates must be on canvas.");
     }
 
