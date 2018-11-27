@@ -23,6 +23,8 @@ public class RectangleCommand implements Command {
 
     public void execute(Canvas canvas) {
         Validations.verifyCanvas(canvas);
+        Validations.verifyRectangleCoordinates(canvas, x1, y1,x2, y2);
         canvas.drawRectangle(x1,y1,x2,y2);
+        canvas.render();
     }
 }

@@ -9,7 +9,7 @@ public class DrawingTool {
     //canvas object intialized
     private Canvas canvas = Canvas.getInstance();
 
-    //invokes execute command based on implementaion
+    //invokes execute command based on command
     public void draw(Command command){
         command.execute(canvas);
     }

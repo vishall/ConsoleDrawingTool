@@ -53,7 +53,6 @@ public class Canvas {
                 canvasArray[x1 - 1][y1 + i - 1] = MARKER;
             }
         }
-        canvas.render();
     }
 
 
@@ -66,8 +65,6 @@ public class Canvas {
         //vertical lines
         drawLine(x1, y1, x1, y2);
         drawLine(x2, y1, x2, y2);
-
-        canvas.render();
     }
 
     public void fill(int x, int y, char c) {

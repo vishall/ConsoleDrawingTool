@@ -31,5 +31,6 @@ public class LineCommandTest {
         lineCommand = new LineCommand(new Scanner(userInput));
         lineCommand.execute(canvas);
         verify(canvas,times(1)).drawLine(1,2,2,2);
+        verify(canvas,times(1)).render();;
     }
 }

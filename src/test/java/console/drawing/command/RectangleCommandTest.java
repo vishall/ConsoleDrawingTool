@@ -22,9 +22,12 @@ public class RectangleCommandTest {
     public void testExecute() {
         String userInput = "1 2 2 3";
         when(canvas.isCanvasDrawn()).thenReturn(true);
+        when(canvas.width()).thenReturn(6);
+        when(canvas.height()).thenReturn(6);
 
         rectangleCommand = new RectangleCommand(new Scanner(userInput));
         rectangleCommand.execute(canvas);
         verify(canvas, times(1)).drawRectangle(1, 2, 2, 3);
+        verify(canvas, times(1)).render();
     }
 }

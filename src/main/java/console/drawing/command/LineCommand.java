@@ -26,5 +26,6 @@ public class LineCommand implements Command {
         verifyCanvas(canvas);
         verifyLineCoordinates(canvas, x1, y1,x2, y2);
         canvas.drawLine(x1,y1,x2,y2);
+        canvas.render();
     }
 }
