@@ -31,7 +31,7 @@ To build and run application gradle needs to be installed.
 
 
 
-# Problem statement
+## Problem statement
 
 You're given the task of writing a simple console version of a drawing program. The functionality of the program is quite limited but should be extensible. The program should work as follows:
 
