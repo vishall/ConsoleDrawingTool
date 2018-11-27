@@ -20,12 +20,13 @@ public class Validations {
     }
 
 
-    public static boolean isValidRectangle(Canvas canvas, int x1, int y1, int x2, int y2){
+    public static void verifyRectangleCoordinates(Canvas canvas, int x1, int y1, int x2, int y2){
         //if rectangle coordinates are within canvas
-        if (x1 < 0 || y1 < 0 || x2 > canvas.width() || y2 > canvas.height())
-            return false;
-
-        return true;
+        if (x1 <= 0 || y1 <= 0 || x2 > canvas.width() || y2 > canvas.height())
+            throw new IllegalArgumentException("Rectangle coordinates must be on canvas.");
+        // verify coordinates of upper left corner are smaller than lower bottom corner
+        if(x1>x2 || y1>y2)
+            throw new IllegalArgumentException("Coordinates of upper left corner must be smaller than lower right corner");
     }
 
     public static void verifyCanvas(Canvas canvas)

@@ -65,13 +65,17 @@ public class ValidationsTest {
     }
 
     @Test
-    public void testisValidRectangle() {
-        canvas.drawCanvas(3,3);
-        assertEquals(true, Validations.isValidRectangle(canvas,1,1,2,2));
-        assertEquals(false, Validations.isValidRectangle(canvas,-1,1,2,2));
-        assertEquals(false, Validations.isValidRectangle(canvas,1,-1,2,2));
-        assertEquals(false, Validations.isValidRectangle(canvas,1,1,4,2));
-        assertEquals(false, Validations.isValidRectangle(canvas,1,1,2,4));
+    public void testverifyRectangleCoordinates() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Rectangle coordinates must be on canvas.");
+        Validations.verifyRectangleCoordinates(canvas,2,2,3,6);
+    }
+
+    @Test
+    public void testverifyGivenValuesOfCornersOfRectangle() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Coordinates of upper left corner must be smaller than lower right corner");
+        Validations.verifyRectangleCoordinates(canvas,4,2,2,1);
     }
 
     @Test
