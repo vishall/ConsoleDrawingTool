@@ -4,7 +4,7 @@
 
 Application that provides options to draw canvas with line, rectangle and fill it.
 
-###### Design
+#### Design
 
 Code is written considering
 
@@ -12,13 +12,13 @@ Code is written considering
 2) Unit tests using Junit and Mockito.
 3) Used Command Design Pattern to handle different user input commands
 
-###### Clone Application
+#### Clone Application
 Clone application
 
 **git clone https://github.com/rashmijoshi3/ConsoleDrawingTool.git**
 
 
-###### How to run Application
+#### How to run Application
 
 To build and run application gradle needs to be installed.
 
