@@ -29,5 +29,6 @@ public class FillCommandTest {
         fillCommand = new FillCommand(new Scanner(userInput));
         fillCommand.execute(canvas);
         verify(canvas,times(1)).fill(2,3,'c');
+        verify(canvas,times(1)).render();
     }
 }

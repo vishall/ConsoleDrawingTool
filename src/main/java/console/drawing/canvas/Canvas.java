@@ -80,7 +80,6 @@ public class Canvas {
         fill(x - 1, y, c);
         fill(x, y + 1, c);
         fill(x, y - 1, c);
-        canvas.render();
     }
 
 
