@@ -35,12 +35,21 @@ public class CanvasTest {
     }
 
     @Test
-    public void testDrawLine() {
+    public void testHorizontalDrawLine() {
         canvas.drawCanvas(3,4);
         canvas.drawLine(1, 2, 2, 2);
         char[][] canvasArray = canvas.getCanvasArray();
         assertEquals(canvasArray[0][1], 'x');
         assertEquals(canvasArray[1][1], 'x');
+    }
+
+    @Test
+    public void testVerticalDrawLine() {
+        canvas.drawCanvas(3,4);
+        canvas.drawLine(1, 2, 1, 3);
+        char[][] canvasArray = canvas.getCanvasArray();
+        assertEquals(canvasArray[0][1], 'x');
+        assertEquals(canvasArray[0][2], 'x');
     }
 
     @Test

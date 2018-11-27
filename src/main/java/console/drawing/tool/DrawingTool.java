@@ -3,6 +3,7 @@ package console.drawing.tool;
 import console.drawing.canvas.Canvas;
 import console.drawing.command.Command;
 
+// Class acts intermediate between command class and receiver Canvas class
 public class DrawingTool {
 
     //canvas object intialized
