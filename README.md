@@ -1,6 +1,6 @@
 # Spriger Challenge
 
-###### Console Drawing Application
+#### Console Drawing Application
 
 Application that provides options to draw canvas with line, rectangle and fill it.
 
