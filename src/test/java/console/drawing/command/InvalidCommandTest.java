@@ -28,7 +28,7 @@ public class InvalidCommandTest {
     @Test
     public void testExecute(){
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Please provide valid command(C/L/R/Q).");
+        expectedException.expectMessage("Please provide valid command(C/L/R/Q) with right number of arguments.");
         invalidCommand.execute(canvas);
     }
 }
