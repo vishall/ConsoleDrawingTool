@@ -16,12 +16,12 @@ public class QuitCommandTest {
     Canvas canvas;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         quitCommand = new QuitCommand();
     }
 
     @Test
-    public void testExecute(){
+    public void testExecute() {
         quitCommand.execute(canvas);
     }
 }

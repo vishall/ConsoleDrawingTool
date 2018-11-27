@@ -4,17 +4,16 @@ public class Canvas {
 
     private final static char BLANK = ' ';
     private final static char MARKER = 'x';
+    public static Canvas canvas;
     private char[][] canvasArray;
     private int w, h;
-
-    public static Canvas canvas;
 
     private Canvas() {
 
     }
 
     public static Canvas getInstance() {
-        if(canvas == null) {
+        if (canvas == null) {
             canvas = new Canvas();
         }
         return canvas;
@@ -104,6 +103,7 @@ public class Canvas {
         strBuilder.append('\n');
         System.out.println(strBuilder.toString());
     }
+
     public int width() {
         return this.w;
     }

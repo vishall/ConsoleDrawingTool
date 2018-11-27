@@ -16,15 +16,7 @@ public class CreateCommand implements Command {
         this.h = parseInt(scanner.next());
     }
 
-    public int getW() {
-        return w;
-    }
-
-    public int getH() {
-        return h;
-    }
-
     public void execute(Canvas canvas) {
-        canvas.drawCanvas(getW(), getH());
+        canvas.drawCanvas(w, h);
     }
 }

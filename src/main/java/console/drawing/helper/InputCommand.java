@@ -1,8 +1,7 @@
 package console.drawing.helper;
 
 // User input command enum
-public enum InputCommand
-{
+public enum InputCommand {
     CREATE("C"),
     LINE("L"),
     RECTANGLE("R"),
@@ -12,13 +11,11 @@ public enum InputCommand
 
     private final String commandChar;
 
-    InputCommand(String commandChar)
-    {
+    InputCommand(String commandChar) {
         this.commandChar = commandChar;
     }
 
-    public String getCommandCharacter()
-    {
+    public String getCommandCharacter() {
         return commandChar;
     }
 

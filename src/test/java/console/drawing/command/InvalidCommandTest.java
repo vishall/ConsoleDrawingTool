@@ -21,12 +21,12 @@ public class InvalidCommandTest {
     Canvas canvas;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         invalidCommand = new InvalidCommand();
     }
 
     @Test
-    public void testExecute(){
+    public void testExecute() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Please provide valid command(C/L/R/Q) with right number of arguments.");
         invalidCommand.execute(canvas);

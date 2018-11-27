@@ -22,7 +22,7 @@ public class CanvasDrawing {
                 Command command = commandMapper.getCommand(scanner, inputCommand);
                 drawingTool.draw(command);
             } catch (Exception ex) {
-                System.out.println("\n"+ex.getMessage());
+                System.out.println("\n" + ex.getMessage());
                 scanner.nextLine();
             }
         }

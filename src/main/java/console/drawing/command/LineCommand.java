@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import static console.drawing.validations.Validations.verifyCanvas;
 import static console.drawing.validations.Validations.verifyLineCoordinates;
-import static java.lang.Integer.*;
+import static java.lang.Integer.parseInt;
 
 public class LineCommand implements Command {
 
@@ -24,8 +24,8 @@ public class LineCommand implements Command {
 
     public void execute(Canvas canvas) {
         verifyCanvas(canvas);
-        verifyLineCoordinates(canvas, x1, y1,x2, y2);
-        canvas.drawLine(x1,y1,x2,y2);
+        verifyLineCoordinates(canvas, x1, y1, x2, y2);
+        canvas.drawLine(x1, y1, x2, y2);
         canvas.render();
     }
 }
